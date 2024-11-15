@@ -96,7 +96,7 @@ export default function Layout({ children, title = 'Blog' }: LayoutProps) {
               
               <div className="flex items-center space-x-6">
                 {/* <Link href="/" className="nav-link">Home</Link> */}
-                {/* <Link href="/categories" className="nav-link">Categories</Link> */}
+                <Link href="https://github.com/sondt1337/Tech-Blog" className="nav-link">Github</Link>
                 <Link href="/about" className="nav-link">About</Link>
                 <button
                   onClick={toggleDarkMode}

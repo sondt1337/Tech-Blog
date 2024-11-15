@@ -1,6 +1,6 @@
 ---
 title: "Markdown Advanced Test"
-date: "2024-11-12"
+date: "2024-11-15"
 excerpt: "Testing advanced Markdown features."
 ---
 

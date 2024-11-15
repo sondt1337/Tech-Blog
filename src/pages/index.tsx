@@ -2,7 +2,42 @@ import Link from 'next/link';
 import { getAllPosts } from '@/lib/markdown';
 import Layout from '@/layouts/Layout';
 
-export default function Home({ posts }: HomeProps) {
+export const POSTS_PER_PAGE = 4;
+
+interface PaginationProps {
+  currentPage: number;
+  totalPages: number;
+}
+
+function Pagination({ currentPage, totalPages }: PaginationProps) {
+  return (
+    <div className="flex justify-center space-x-4 mt-8">
+      {currentPage > 1 && (
+        <Link
+          href={currentPage === 2 ? '/' : `/page/${currentPage - 1}`}
+          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700"
+        >
+          Previous Page
+        </Link>
+      )}
+      
+      <span className="px-4 py-2 text-gray-700 dark:text-gray-300">
+        Page {currentPage} / {totalPages}
+      </span>
+
+      {currentPage < totalPages && (
+        <Link
+          href={`/page/${currentPage + 1}`}
+          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700"
+        >
+          Next Page
+        </Link>
+      )}
+    </div>
+  );
+}
+
+export default function Home({ posts, currentPage, totalPages }: HomeProps) {
   return (
     <Layout title="Home">
       <div className="max-w-4xl mx-auto">
@@ -21,13 +56,13 @@ export default function Home({ posts }: HomeProps) {
             >
               <Link href={`/posts/${post.slug}`} className="block p-8">
                 <div className="mb-4">
-                <time className="text-sm text-gray-500 dark:text-gray-100">
-                  {post.date ? new Date(post.date).toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                  }) : 'No date available'}
-                </time>
+                  <time className="text-sm text-gray-500 dark:text-gray-100">
+                    {post.date ? new Date(post.date).toLocaleDateString('vi-VN', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric',
+                    }) : 'Không có ngày'}
+                  </time>
                 </div>
                 <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white hover:text-blue-600 transition">
                   {post.title}
@@ -37,28 +72,35 @@ export default function Home({ posts }: HomeProps) {
                 )}
                 <div className="flex items-center">
                   <span className="text-blue-600 dark:text-blue-400 hover:text-blue-800">
-                    Read more →
+                    Đọc thêm →
                   </span>
                 </div>
               </Link>
             </article>
           ))}
         </section>
+
+        <Pagination currentPage={currentPage} totalPages={totalPages} />
       </div>
     </Layout>
   );
 }
 
 export async function getStaticProps() {
-  const posts = getAllPosts();
+  const allPosts = getAllPosts();
+  const totalPages = Math.ceil(allPosts.length / POSTS_PER_PAGE);
+  const paginatedPosts = allPosts.slice(0, POSTS_PER_PAGE);
+
   return {
     props: {
-      posts: posts.map((post) => ({
+      posts: paginatedPosts.map((post) => ({
         slug: post.slug,
         title: post.title || null,
         date: post.date || null,
         excerpt: post.excerpt || null,
       })),
+      currentPage: 1,
+      totalPages,
     },
   };
 }
@@ -70,4 +112,6 @@ interface HomeProps {
     date: string | null;
     excerpt: string | null;
   }[];
+  currentPage: number;
+  totalPages: number;
 }
