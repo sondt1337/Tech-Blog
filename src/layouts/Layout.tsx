@@ -30,7 +30,7 @@ export default function Layout({ children, title = 'Blog' }: LayoutProps) {
   return (
     <div className={`min-h-screen transition-colors duration-200 ${isDark ? 'dark bg-gray-900' : 'bg-gray-50'}`}>
       <Head>
-        <title>{title} - sondt's Blog</title>
+      <title>{title} - sondt&apos;s Blog</title>
         <link rel="icon" href="/favicon.ico" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css" />
         <meta name="description" content="A professional blog about software development and technology" />
@@ -45,7 +45,7 @@ export default function Layout({ children, title = 'Blog' }: LayoutProps) {
           <div className="flex justify-between h-16 items-center">
             <Link href="/" className="flex items-center space-x-2">
               <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                sondt's Blog
+                sondt&apos;s Blog
               </span>
             </Link>
             
@@ -72,7 +72,7 @@ export default function Layout({ children, title = 'Blog' }: LayoutProps) {
         <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="col-span-2">
-              <h3 className="text-xl font-bold mb-4 dark:text-white">About sondt's Blog</h3>
+            <h3 className="text-xl font-bold mb-4 dark:text-white">About sondt&apos;s Blog</h3>
               <p className="text-gray-600 dark:text-gray-400">
                 Sharing in-depth insights about software development, architecture, and best practices.
               </p>

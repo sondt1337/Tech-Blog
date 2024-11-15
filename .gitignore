@@ -39,6 +39,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-/content/*
-!/content/hello-world.md
-!/content/pages/about.md
+# /content/*
+# !/content/hello-world.md
+# !/content/pages/about.md
