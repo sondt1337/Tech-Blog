@@ -1,20 +1,22 @@
-import Link from 'next/link'
-import { getAllPosts } from '@/lib/markdown'
-import Layout from '@/layouts/Layout'
+import Link from 'next/link';
+import { getAllPosts } from '@/lib/markdown';
+import Layout from '@/layouts/Layout';
 
-export default function Home({ posts }) {
+export default function Home({ posts }: HomeProps) {
   return (
     <Layout title="Home">
       <div className="max-w-4xl mx-auto">
         <section className="mb-16">
           <h1 className="text-4xl font-bold mb-4">Welcome to sondt's Blog</h1>
-          <p className="text-xl text-gray-600">Exploring the world of technology, one post at a time.</p>
+          <p className="text-xl text-gray-600">
+            Exploring the world of technology, one post at a time.
+          </p>
         </section>
 
         <section className="space-y-12">
           {posts.map((post) => (
-            <article 
-              key={post.slug} 
+            <article
+              key={post.slug}
               className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300"
             >
               <Link href={`/posts/${post.slug}`} className="block p-8">
@@ -23,7 +25,7 @@ export default function Home({ posts }) {
                     {new Date(post.date).toLocaleDateString('en-US', {
                       year: 'numeric',
                       month: 'long',
-                      day: 'numeric'
+                      day: 'numeric',
                     })}
                   </time>
                 </div>
@@ -44,21 +46,21 @@ export default function Home({ posts }) {
         </section>
       </div>
     </Layout>
-  )
+  );
 }
 
 export async function getStaticProps() {
-  const posts = getAllPosts()
+  const posts = getAllPosts();
   return {
     props: {
-      posts: posts.map(post => ({
+      posts: posts.map((post) => ({
         slug: post.slug,
         title: post.title || null,
         date: post.date || null,
-        excerpt: post.excerpt || null
-      }))
-    }
-  }
+        excerpt: post.excerpt || null,
+      })),
+    },
+  };
 }
 
 interface HomeProps {
@@ -69,4 +71,3 @@ interface HomeProps {
     excerpt: string | null;
   }[];
 }
-
