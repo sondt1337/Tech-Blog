@@ -12,6 +12,16 @@ export default function Layout({ children, title = 'Blog' }: LayoutProps) {
   const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
+    const savedTheme = localStorage.getItem('theme')
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+    
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      setIsDark(true)
+      document.documentElement.classList.add('dark')
+    }
+  }, [])
+
+  useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20)
     }
@@ -26,6 +36,17 @@ export default function Layout({ children, title = 'Blog' }: LayoutProps) {
       copyrightHolder.textContent = encodedName;
     }
   }, []);
+
+  const toggleDarkMode = () => {
+    setIsDark(!isDark)
+    if (!isDark) {
+      document.documentElement.classList.add('dark')
+      localStorage.setItem('theme', 'dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+      localStorage.setItem('theme', 'light')
+    }
+  }
 
   return (
     <div className={`min-h-screen flex flex-col transition-colors duration-200 ${isDark ? 'dark bg-gray-900' : 'bg-gray-50'}`}>
@@ -55,7 +76,7 @@ export default function Layout({ children, title = 'Blog' }: LayoutProps) {
                 {/* <Link href="/categories" className="nav-link">Categories</Link> */}
                 <Link href="/about" className="nav-link">About</Link>
                 <button
-                  onClick={() => setIsDark(!isDark)}
+                  onClick={toggleDarkMode}
                   className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
                 >
                   {isDark ? '🌞' : '🌙'}
