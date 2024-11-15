@@ -7,7 +7,7 @@ export default function Home({ posts }) {
     <Layout title="Home">
       <div className="max-w-4xl mx-auto">
         <section className="mb-16">
-          <h1 className="text-4xl font-bold mb-4">Welcome to TechBlog</h1>
+          <h1 className="text-4xl font-bold mb-4">Welcome to sondt's Blog</h1>
           <p className="text-xl text-gray-600">Exploring the world of technology, one post at a time.</p>
         </section>
 
