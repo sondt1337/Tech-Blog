@@ -28,51 +28,53 @@ export default function Layout({ children, title = 'Blog' }: LayoutProps) {
   }, []);
 
   return (
-    <div className={`min-h-screen transition-colors duration-200 ${isDark ? 'dark bg-gray-900' : 'bg-gray-50'}`}>
-      <Head>
-      <title>{title} - sondt&apos;s Blog</title>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css" />
-        <meta name="description" content="A professional blog about software development and technology" />
-      </Head>
+    <div className={`min-h-screen flex flex-col transition-colors duration-200 ${isDark ? 'dark bg-gray-900' : 'bg-gray-50'}`}>
+      <div className="flex-grow">
+        <Head>
+          <title>{title} - sondt&apos;s Blog</title>
+          <link rel="icon" href="/favicon.ico" />
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css" />
+          <meta name="description" content="A professional blog about software development and technology" />
+        </Head>
 
-      <header className={`sticky top-0 z-50 transition-all duration-200 ${
-        isScrolled 
-          ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg shadow-lg' 
-          : 'bg-white dark:bg-gray-900'
-      }`}>
-        <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16 items-center">
-            <Link href="/" className="flex items-center space-x-2">
-              <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                sondt&apos;s Blog
-              </span>
-            </Link>
-            
-            <div className="flex items-center space-x-6">
-              {/* <Link href="/" className="nav-link">Home</Link> */}
-              {/* <Link href="/categories" className="nav-link">Categories</Link> */}
-              <Link href="/about" className="nav-link">About</Link>
-              <button
-                onClick={() => setIsDark(!isDark)}
-                className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-              >
-                {isDark ? '🌞' : '🌙'}
-              </button>
+        <header className={`sticky top-0 z-50 transition-all duration-200 ${
+          isScrolled 
+            ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg shadow-lg' 
+            : 'bg-white dark:bg-gray-900'
+        }`}>
+          <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-between h-16 items-center">
+              <Link href="/" className="flex items-center space-x-2">
+                <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                  sondt&apos;s Blog
+                </span>
+              </Link>
+              
+              <div className="flex items-center space-x-6">
+                {/* <Link href="/" className="nav-link">Home</Link> */}
+                {/* <Link href="/categories" className="nav-link">Categories</Link> */}
+                <Link href="/about" className="nav-link">About</Link>
+                <button
+                  onClick={() => setIsDark(!isDark)}
+                  className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                >
+                  {isDark ? '🌞' : '🌙'}
+                </button>
+              </div>
             </div>
-          </div>
-        </nav>
-      </header>
+          </nav>
+        </header>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {children}
-      </main>
+        <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          {children}
+        </main>
+      </div>
 
       <footer className="bg-white dark:bg-gray-900 border-t dark:border-gray-800">
         <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="col-span-2">
-            <h3 className="text-xl font-bold mb-4 dark:text-white">About sondt&apos;s Blog</h3>
+              <h3 className="text-xl font-bold mb-4 dark:text-white">About sondt&apos;s Blog</h3>
               <p className="text-gray-600 dark:text-gray-400">
                 Sharing in-depth insights about software development, architecture, and best practices.
               </p>
