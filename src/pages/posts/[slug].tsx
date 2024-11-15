@@ -71,7 +71,11 @@ export async function getStaticPaths() {
   }
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ 
+  params 
+}: {
+  params: { slug: string }
+}) {
   const post = getPostBySlug(params.slug)
   return {
     props: { post }

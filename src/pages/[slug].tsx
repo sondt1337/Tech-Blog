@@ -54,7 +54,11 @@ export async function getStaticPaths() {
   }
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ 
+  params 
+}: { 
+  params: { slug: string } 
+}) {
   const page = getPage(params.slug)
   
   if (!page) {
