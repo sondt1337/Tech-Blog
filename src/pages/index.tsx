@@ -21,13 +21,13 @@ export default function Home({ posts }: HomeProps) {
             >
               <Link href={`/posts/${post.slug}`} className="block p-8">
                 <div className="mb-4">
-                  <time className="text-sm text-gray-500">
-                    {new Date(post.date).toLocaleDateString('en-US', {
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric',
-                    })}
-                  </time>
+                <time className="text-sm text-gray-500">
+                  {post.date ? new Date(post.date).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  }) : 'No date available'}
+                </time>
                 </div>
                 <h2 className="text-2xl font-bold mb-4 text-gray-900 hover:text-blue-600 transition">
                   {post.title}
