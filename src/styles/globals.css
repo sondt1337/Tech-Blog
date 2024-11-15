@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .nav-link {
+    @apply text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors;
+  }
+  
+  .footer-link {
+    @apply text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors;
+  }
+  
+  .social-link {
+    @apply text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors;
+  }
+}
+
+.prose {
+  @apply dark:prose-invert prose-headings:scroll-mt-20;
+}
+
+.prose pre {
+  @apply bg-gray-800 dark:bg-black text-white p-4 rounded-lg my-4 overflow-x-auto;
+}
+
+.prose code {
+  @apply text-sm bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded;
+}
+
+.prose pre code {
+  @apply bg-transparent p-0 text-white;
+}
+
+.prose img {
+  @apply rounded-lg shadow-lg dark:shadow-gray-800 my-8;
+}
+
+.prose a {
+  @apply text-blue-600 dark:text-blue-400 no-underline hover:text-blue-800 dark:hover:text-blue-300;
+}
+
+.prose blockquote {
+  @apply border-l-4 border-blue-500 dark:border-blue-400 pl-4 italic;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
