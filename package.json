@@ -12,6 +12,7 @@
     "dependencies": {
         "gray-matter": "latest",
         "next": "latest",
+        "prism-react-renderer": "^2.4.0",
         "react": "latest",
         "react-dom": "latest",
         "rehype-katex": "latest",

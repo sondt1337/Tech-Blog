@@ -32,30 +32,38 @@ export default function Post({ post }: PostProps) {
     }
   };
 
-  // Thêm effect để xử lý các code blocks
   useEffect(() => {
     const codeBlocks = document.querySelectorAll('pre');
     codeBlocks.forEach(pre => {
-      // check if copy button is already exists
+      // Thêm class group để control copy button visibility
+      pre.classList.add('group', 'relative');
+      
+      // Xác định ngôn ngữ từ class
+      const codeElement = pre.querySelector('code');
+      const language = codeElement?.className.match(/language-(\w+)/)?.[1] || 'text';
+      
+      // Thêm language badge
+      // const languageBadge = document.createElement('span');
+      // languageBadge.textContent = language;
+      // languageBadge.className = 'language-badge';
+      // pre.appendChild(languageBadge);
+  
+      // Thêm copy button với style mới
       if (!pre.querySelector('.copy-button')) {
-        // add position relative for pre
-        pre.style.position = 'relative';
-        // create copy button
         const copyButton = document.createElement('button');
         copyButton.textContent = 'Copy';
-        copyButton.className = 'copy-button absolute right-2 top-2 rounded bg-gray-700 px-2 py-1 text-xs text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500';
-        // get code content
+        copyButton.className = 'copy-button';
         const code = pre.textContent || '';
-        // add click event
         copyButton.addEventListener('click', () => copyToClipboard(code, copyButton));
         pre.appendChild(copyButton);
       }
     });
-
-    // Cleanup function
+  
     return () => {
       const copyButtons = document.querySelectorAll('.copy-button');
+      const languageBadges = document.querySelectorAll('.language-badge');
       copyButtons.forEach(button => button.remove());
+      languageBadges.forEach(badge => badge.remove());
     };
   }, []);
 
