@@ -30,12 +30,34 @@ export default function Layout({ children, title = 'Blog' }: LayoutProps) {
   }, [])
 
   useEffect(() => {
-    const copyrightHolder = document.getElementById('copyright-holder');
-    if (copyrightHolder) {
-      const encodedName = [115, 111, 110, 100, 116].map(char => String.fromCharCode(char)).join('');
-      copyrightHolder.textContent = encodedName;
-    }
-  }, []);
+    const fn1 = (x) => document.getElementById(x);
+    const fn2 = (y) => btoa(y);
+    const fn3 = (z) => atob(z);
+
+    const fn4 = (arr, key) =>
+        arr.filter((val, idx) => idx % 2 === 0)
+           .map((val) => val ^ key)
+           .reverse()
+           .map((x) => String.fromCharCode(x))
+           .join('');
+
+    const fn5 = () => {
+        const el = fn1('x');
+        if (el) {
+            const dataSet = [15, 190, 31, 220, 21, 215, 20, 210, 8, 200];
+            const magicNum = 123;
+            const step1 = fn4(dataSet, magicNum);
+            const step2 = fn2(step1);
+            const step3 = fn3(step2);
+            el.textContent = step3;
+        }
+    };
+
+    fn5();
+}, []);
+
+
+
 
   const toggleDarkMode = () => {
     setIsDark(!isDark)
@@ -97,7 +119,7 @@ export default function Layout({ children, title = 'Blog' }: LayoutProps) {
             <div className="col-span-3">
               <h3 className="text-xl font-bold mb-3 dark:text-white">About sondt&apos;s Blog</h3>
               <p className="text-gray-600 dark:text-gray-100">
-                Sharing in-depth insights about software development, architecture, and best practices.
+                Sharing In-Depth Insights About Security, CTF Challenges, and Tech Architecture.
               </p>
             </div>
             <div>
@@ -117,7 +139,7 @@ export default function Layout({ children, title = 'Blog' }: LayoutProps) {
             </div>
           </div>
           <div className="mt-6 pt-6 border-t dark:border-gray-800 text-center text-gray-500 dark:text-gray-100">
-            © <span id="copyright-holder"></span> {new Date().getFullYear()}. All rights reserved.
+            Theme by <span id="x"></span> | © yourname {new Date().getFullYear()}.
           </div>
         </div>
       </footer>

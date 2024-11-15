@@ -9,7 +9,7 @@ export default function Home({ posts }: HomeProps) {
         <section className="mb-16">
           <h1 className="text-4xl font-bold mb-4 dark:text-white">Welcome to sondt&apos;s Blog</h1>
           <p className="text-xl text-gray-600 dark:text-gray-100">
-            Exploring the world of technology, one post at a time.
+            Something about infosec!...
           </p>
         </section>
 

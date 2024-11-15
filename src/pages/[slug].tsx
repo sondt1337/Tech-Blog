@@ -36,7 +36,7 @@ export default function Page({ page }: PageProps) {
             dangerouslySetInnerHTML={{ __html: content }} 
           />
           <div className="mt-8 text-sm text-gray-500 dark:text-gray-400">
-            Cập nhật lần cuối: {new Date(page.lastUpdated).toLocaleDateString('vi-VN')}
+            Last updated: {new Date(page.lastUpdated).toLocaleDateString('vi-VN')}
           </div>
         </div>
       </div>
