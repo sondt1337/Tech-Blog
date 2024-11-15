@@ -50,6 +50,23 @@ export default function Home({ posts }) {
 export async function getStaticProps() {
   const posts = getAllPosts()
   return {
-    props: { posts }
+    props: {
+      posts: posts.map(post => ({
+        slug: post.slug,
+        title: post.title || null,
+        date: post.date || null,
+        excerpt: post.excerpt || null
+      }))
+    }
   }
 }
+
+interface HomeProps {
+  posts: {
+    slug: string;
+    title: string | null;
+    date: string | null;
+    excerpt: string | null;
+  }[];
+}
+

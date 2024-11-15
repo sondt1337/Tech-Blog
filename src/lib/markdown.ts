@@ -15,6 +15,7 @@ export function getAllPosts() {
       slug: fileName.replace(/\.md$/, ''),
       title: data.title,
       date: data.date,
+      excerpt: data.excerpt,
       content
     }
   }).sort((a, b) => (a.date < b.date ? 1 : -1))
@@ -29,6 +30,7 @@ export function getPostBySlug(slug: string) {
     slug,
     title: data.title,
     date: data.date,
+    excerpt: data.excerpt,
     content
   }
-} 
+}
