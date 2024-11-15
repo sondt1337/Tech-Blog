@@ -30,13 +30,13 @@ export default function Post({ post }: PostProps) {
 
   return (
     <Layout title={post.title}>
-      <article className="max-w-4xl mx-auto">
-        <div className="mb-12">
-          <Link href="/" className="text-blue-600 hover:text-blue-800 mb-8 inline-block">
+      <article className="max-w-4xl mx-auto dark:bg-gray-800 rounded-xl shadow-md p-8">
+        <div className="mb-12 ">
+          <Link href="/" className="text-blue-600 hover:text-blue-800 mb-8 inline-block dark:text-blue-400 dark:hover:text-blue-600">
             ← Back to home
           </Link>
-          <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
-          <time className="text-gray-500">
+          <h1 className="text-4xl font-bold mb-4 dark:text-white">{post.title}</h1>
+          <time className="text-gray-500 dark:text-gray-100 text-sm">
             {new Date(post.date).toLocaleDateString('en-US', {
               year: 'numeric',
               month: 'long',
@@ -45,15 +45,17 @@ export default function Post({ post }: PostProps) {
           </time>
         </div>
         
-        <div className="prose prose-lg prose-blue mx-auto bg-white rounded-xl shadow-md p-8">
+        <div className="prose prose-lg prose-blue mx-auto bg-white rounded-xl shadow-md p-8 
+                dark:bg-gray-900 dark:text-gray-200 dark:shadow-lg dark:border dark:border-gray-700">
+
           <div dangerouslySetInnerHTML={{ __html: content }} />
         </div>
 
-        <div className="mt-12 pt-8 border-t">
-          <h3 className="text-2xl font-bold mb-4">Share this post</h3>
-          <div className="flex space-x-4">
-            <a href="#" className="text-blue-600 hover:text-blue-800">Twitter</a>
-            <a href="#" className="text-blue-600 hover:text-blue-800">LinkedIn</a>
+        <div className="mt-12 pt-8 border-t dark:border-gray-800">
+          <h3 className="text-2xl font-bold mb-4 dark:text-white">Share this post</h3>
+          <div className="flex space-x-4 dark:text-gray-100">
+            <a href="#" className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-600">Twitter</a>
+            <a href="#" className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-600">LinkedIn</a>
           </div>
         </div>
       </article>

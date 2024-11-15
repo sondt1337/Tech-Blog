@@ -4,44 +4,66 @@
 
 @layer components {
   .nav-link {
-    @apply text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors;
+    @apply text-gray-600 hover:text-blue-600 transition-colors;
   }
-  
+  .dark .nav-link {
+    @apply text-gray-100 hover:text-blue-400;
+  }
+
   .footer-link {
-    @apply text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors;
+    @apply text-gray-600 hover:text-blue-600 transition-colors;
   }
-  
+  .dark .footer-link {
+    @apply text-gray-100 hover:text-blue-400;
+  }
+
   .social-link {
-    @apply text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors;
+    @apply text-gray-400 hover:text-blue-100 transition-colors;
+  }
+  .dark .social-link {
+    @apply hover:text-blue-400;
   }
 }
 
 .prose {
-  @apply dark:prose-invert prose-headings:scroll-mt-20;
+  @apply prose-headings:scroll-mt-20;
+}
+.dark .prose {
+  @apply prose-invert text-white;
 }
 
 .prose pre {
-  @apply bg-gray-800 dark:bg-black text-white p-4 rounded-lg my-4 overflow-x-auto;
+  @apply bg-gray-800 text-gray-100 p-4 rounded-lg my-4 overflow-x-auto;
 }
-
-.prose code {
-  @apply text-sm bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded;
+.dark .prose pre {
+  @apply bg-gray-700 text-gray-200;
 }
-
 .prose pre code {
-  @apply bg-transparent p-0 text-white;
+  @apply bg-transparent p-0 text-gray-100;
+}
+.dark .prose pre code {
+  @apply bg-transparent text-gray-200;
 }
 
 .prose img {
-  @apply rounded-lg shadow-lg dark:shadow-gray-800 my-8;
+  @apply rounded-lg shadow-lg my-8;
+}
+.dark .prose img {
+  @apply shadow-gray-800;
 }
 
 .prose a {
-  @apply text-blue-600 dark:text-blue-400 no-underline hover:text-blue-800 dark:hover:text-blue-300;
+  @apply text-blue-600 no-underline hover:text-blue-800;
+}
+.dark .prose a {
+  @apply text-blue-400 hover:text-blue-300;
 }
 
 .prose blockquote {
-  @apply border-l-4 border-blue-500 dark:border-blue-400 pl-4 italic;
+  @apply border-l-4 border-blue-500 pl-4 italic;
+}
+.dark .prose blockquote {
+  @apply border-blue-400;
 }
 
 @keyframes fadeIn {
