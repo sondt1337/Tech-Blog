@@ -41,3 +41,4 @@ next-env.d.ts
 
 /content/*
 !/content/hello-world.md
+!/content/pages/about.md
