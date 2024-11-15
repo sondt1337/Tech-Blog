@@ -86,7 +86,7 @@ export default function Post({ post }: PostProps) {
           </Link>
           <h1 className="text-4xl font-bold mb-4 dark:text-white">{post.title}</h1>
           <time className="text-gray-500 dark:text-gray-100 text-sm">
-            {new Date(post.date).toLocaleDateString('vi-VN', {
+            {new Date(post.date).toLocaleDateString('en-EN', {
               year: 'numeric',
               month: 'long',
               day: 'numeric'

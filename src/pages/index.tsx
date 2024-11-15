@@ -57,11 +57,11 @@ export default function Home({ posts, currentPage, totalPages }: HomeProps) {
               <Link href={`/posts/${post.slug}`} className="block p-8">
                 <div className="mb-4">
                   <time className="text-sm text-gray-500 dark:text-gray-100">
-                    {post.date ? new Date(post.date).toLocaleDateString('vi-VN', {
+                    {post.date ? new Date(post.date).toLocaleDateString('en-EN', {
                       year: 'numeric',
                       month: 'long',
                       day: 'numeric',
-                    }) : 'Không có ngày'}
+                    }) : 'No date'}
                   </time>
                 </div>
                 <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white hover:text-blue-600 transition">
@@ -72,7 +72,7 @@ export default function Home({ posts, currentPage, totalPages }: HomeProps) {
                 )}
                 <div className="flex items-center">
                   <span className="text-blue-600 dark:text-blue-400 hover:text-blue-800">
-                    Đọc thêm →
+                    Read more→
                   </span>
                 </div>
               </Link>
