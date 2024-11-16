@@ -7,6 +7,8 @@ import remarkGfm from 'remark-gfm'
 import remarkRehype from 'remark-rehype'
 import rehypeKatex from 'rehype-katex'
 import rehypeStringify from 'rehype-stringify'
+import remarkEmoji from 'remark-emoji';
+
 
 interface PageProps {
   page: {
