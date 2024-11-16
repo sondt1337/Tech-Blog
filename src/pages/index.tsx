@@ -54,26 +54,37 @@ export default function Home({ posts, currentPage, totalPages }: HomeProps) {
               key={post.slug}
               className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300"
             >
-              <Link href={`/posts/${post.slug}`} className="block p-8">
-                <div className="mb-4">
-                  <time className="text-sm text-gray-500 dark:text-gray-100">
-                    {post.date ? new Date(post.date).toLocaleDateString('en-EN', {
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric',
-                    }) : 'No date'}
-                  </time>
-                </div>
-                <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white hover:text-blue-600 transition">
-                  {post.title}
-                </h2>
-                {post.excerpt && (
-                  <p className="text-gray-600 dark:text-gray-100 mb-4">{post.excerpt}</p>
+              <Link href={`/posts/${post.slug}`}>
+                {post.featured && (
+                  <div className="relative h-64 w-full overflow-hidden">
+                    <img
+                      src={post.featured}
+                      alt={post.title || 'Featured image'}
+                      className="object-cover w-full h-full transform hover:scale-105 transition duration-300"
+                    />
+                  </div>
                 )}
-                <div className="flex items-center">
-                  <span className="text-blue-600 dark:text-blue-400 hover:text-blue-800">
-                    Read more→
-                  </span>
+                <div className="p-8">
+                  <div className="mb-4">
+                    <time className="text-sm text-gray-500 dark:text-gray-100">
+                      {post.date ? new Date(post.date).toLocaleDateString('en-EN', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                      }) : 'No date'}
+                    </time>
+                  </div>
+                  <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white hover:text-blue-600 transition">
+                    {post.title}
+                  </h2>
+                  {post.excerpt && (
+                    <p className="text-gray-600 dark:text-gray-100 mb-4">{post.excerpt}</p>
+                  )}
+                  <div className="flex items-center">
+                    <span className="text-blue-600 dark:text-blue-400 hover:text-blue-800">
+                      Read more→
+                    </span>
+                  </div>
                 </div>
               </Link>
             </article>
@@ -84,6 +95,18 @@ export default function Home({ posts, currentPage, totalPages }: HomeProps) {
       </div>
     </Layout>
   );
+}
+
+export interface HomeProps {
+  posts: {
+    slug: string;
+    title: string | null;
+    date: string | null;
+    excerpt: string | null;
+    featured: string | null;
+  }[];
+  currentPage: number;
+  totalPages: number;
 }
 
 export async function getStaticProps() {
@@ -98,20 +121,10 @@ export async function getStaticProps() {
         title: post.title || null,
         date: post.date || null,
         excerpt: post.excerpt || null,
+        featured: post.featured || null,
       })),
       currentPage: 1,
       totalPages,
     },
   };
-}
-
-interface HomeProps {
-  posts: {
-    slug: string;
-    title: string | null;
-    date: string | null;
-    excerpt: string | null;
-  }[];
-  currentPage: number;
-  totalPages: number;
 }

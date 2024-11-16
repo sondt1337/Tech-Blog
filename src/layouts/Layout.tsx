@@ -140,7 +140,7 @@ export default function Layout({ children, title = 'Blog' }: LayoutProps) {
             </div>
           </div>
           <div className="mt-6 pt-6 border-t dark:border-gray-800 text-center text-gray-500 dark:text-gray-100">
-            Theme by <span id="x"></span> | © yourname {new Date().getFullYear()}.
+            Theme by <span id="x"></span> | © krixov {new Date().getFullYear()}.
           </div>
         </div>
       </footer>

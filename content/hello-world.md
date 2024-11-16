@@ -2,6 +2,7 @@
 title: "Hello World"
 date: "2024-11-10"
 excerpt: "This is my first blog post"
+featured: "/images/test1.jpg"
 ---
 This is my first blog post using **Markdown**.
 
