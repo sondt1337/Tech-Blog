@@ -1,40 +1,92 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Tech Blog
+
+A minimalist personal blog built with Next.js, Tailwind CSS, and Markdown.
+
+## Features
+
+- 🎨 Clean, minimalist design with Tailwind CSS
+- 🌙 Dark/Light mode support
+- ✍️ Write posts in Markdown
+- 📝 Advanced Markdown features:
+  - Code blocks with syntax highlighting
+  - Math equations (KaTeX)
+  - Emoji support
+  - Footnotes
+  - Tables
+  - Task lists
+- 📑 Automatic table of contents
+- 🔍 SEO friendly
+- 📱 Fully responsive
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository:
+```bash
+git clone https://github.com/sondt1337/Tech-Blog.git
+cd Tech-Blog
+```
 
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Run the development server:
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```
+Tech-Blog/
+├── content/           # Markdown posts
+│   └── pages/        # Static pages (about, etc.)
+├── public/           # Static assets (images, etc.)
+└── src/
+    ├── components/   # React components
+    ├── layouts/      # Layout components
+    ├── lib/          # Utilities & helpers
+    ├── pages/        # Next.js pages
+    └── styles/       # CSS styles
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+## Writing Posts
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Create a new `.md` file in the `content/` directory
+2. Add frontmatter with the following format:
+```yaml
+---
+title: "Your Post Title"
+date: "YYYY-MM-DD"
+excerpt: "A brief description of your post"
+featured: "/images/featured.jpg"
+---
+```
+3. Write your post content in Markdown
 
-## Learn More
+## Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+- [Next.js](https://nextjs.org/) - React framework
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
+- [Unified](https://unifiedjs.com/) - Markdown processing
+- [KaTeX](https://katex.org/) - Math rendering
+- [Prism](https://prismjs.com/) - Syntax highlighting
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+## Contributing
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+[MIT License](LICENSE)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+## Author
+
+- Thai Son Dinh ([@krixov](https://x.com/krixov))
