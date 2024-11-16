@@ -2,6 +2,7 @@
 title: "Backdoor CTF 2023 | Reverse Engineering"
 date: "2023-12-18"
 excerpt: "The last CTF i joined in 2023. Happy New Year!!!"
+featured: "/images/backdoorctf-2023-re/featured.png"
 ---
 ![](/images/backdoorctf-2023-re/featured.png)
 

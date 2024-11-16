@@ -2,6 +2,7 @@
 title: "UMDCTF 2023 | Digital Forensics"
 date: "2023-05-17"
 excerpt: "Writeup 7/8 digital forensics challs in UMDCTF 2023."
+featured: "/images/writeups-forensics-umdctf/featured.png"
 ---
 
 ![](/images/writeups-forensics-umdctf/featured.png)

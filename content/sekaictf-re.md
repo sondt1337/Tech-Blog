@@ -2,6 +2,7 @@
 title: "SekaiCTF 2023 | Reverse Engineering"
 date: "2023-08-27"
 excerpt: "Wibu time, this writeup is about the RE challenges I solved in SekaiCTF 2023"
+featured: "/images/sekaictf-re/featured-image.png"
 ---
 
 ![](/images/sekaictf-re/featured-image.png)

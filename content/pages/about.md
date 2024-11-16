@@ -12,7 +12,7 @@ Hey, I'm **ZxTS**, also known by the nickname **Spid3r**. I’m studying at [SOI
  I’ll use this site to share writeups of CTFs or post articles related to cybersecurity.
 
 ## You can find me at
-Telegram: https://t.me/krixov
+Telegram: https://t.me/youmakemesuy
 
 Twitter: https://x.com/krixov
 

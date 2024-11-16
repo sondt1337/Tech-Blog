@@ -346,3 +346,14 @@
          h-full 
          border-0;
 }
+
+.prose {
+  @apply prose-img:mx-auto 
+         prose-img:block
+         prose-img:max-w-full
+         prose-img:rounded-xl 
+         prose-img:shadow-lg
+         prose-img:transition-all
+         hover:prose-img:shadow-2xl
+         hover:prose-img:scale-[1.02];
+}

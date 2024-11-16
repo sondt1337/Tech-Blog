@@ -2,6 +2,7 @@
 title: "CorCTF 2022 | Reverse Engineering"
 date: "2022-08-09"
 excerpt: "CorCTF 2022 | Reverse Engineering"
+featured: "/images/corctf2022-re/featured-image.png"
 ---
 
 ![](/images/corctf2022-re/featured-image.png)

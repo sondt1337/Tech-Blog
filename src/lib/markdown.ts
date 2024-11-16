@@ -9,7 +9,6 @@ export function getAllPosts() {
   const fileNames = fs.readdirSync(postsDirectory)
   return fileNames
     .filter(fileName => {
-      // Chỉ lấy file .md và không nằm trong thư mục pages
       return fileName.endsWith('.md') && !fs.statSync(path.join(postsDirectory, fileName)).isDirectory()
     })
     .map((fileName) => {
@@ -22,6 +21,7 @@ export function getAllPosts() {
         title: data.title,
         date: data.date,
         excerpt: data.excerpt,
+        featured: data.featured || null,
         content
       }
     })
@@ -39,6 +39,7 @@ export function getPostBySlug(slug: string) {
       title: data.title,
       date: data.date,
       excerpt: data.excerpt,
+      featured: data.featured || null,
       content
     }
   } catch (error) {
@@ -46,7 +47,6 @@ export function getPostBySlug(slug: string) {
   }
 }
 
-// Thêm function mới
 export function getAllPages() {
   try {
     const fileNames = fs.readdirSync(pagesDirectory)
@@ -60,7 +60,7 @@ export function getAllPages() {
   }
 }
 
-// Cập nhật function getPage
+
 export function getPage(slug: string) {
   try {
     const fullPath = path.join(pagesDirectory, `${slug}.md`)

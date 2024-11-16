@@ -1,7 +1,8 @@
 ---
 title: "Cookie Arena 2 | Reverse Engineering"
 date: "2023-07-09"
-excerpt: "Clear Reverse Engineering giải Cookie Arena mùa 2 "
+excerpt: "Clear Reverse Engineering giải Cookie Arena mùa 2"
+featured: "/images/cookie_arena_2/featured.png"
 ---
 
 ![](/images/cookie_arena_2/featured.png)

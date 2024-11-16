@@ -2,6 +2,7 @@
 title: "Cyber SEA Game 2023 | Recap"
 date: "2023-11-10"
 excerpt: "Post này chỉ để kể câu chuyện đội mình đi thi Cyber SEA Game 2023 tại Bangkok, Thailand (9-10/11/2023)"
+featured: "/images/cyberseagame2023/featured.png"
 ---
 ![](/images/cyberseagame2023/featured.png)
 
