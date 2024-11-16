@@ -11,7 +11,7 @@
     },
     "dependencies": {
         "gray-matter": "latest",
-        "next": "latest",
+        "next": "^15.0.3",
         "prism-react-renderer": "^2.4.0",
         "react": "latest",
         "react-dom": "latest",
@@ -40,6 +40,6 @@
         "typescript": "latest"
     },
     "engines": {
-        "node": "18.x"
+        "node": "22.x"
     }
 }
