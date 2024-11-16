@@ -1,0 +1,41 @@
+__int64 __fastcall func_5(__int64 a1, __int64 a2)
+{
+  int v2; // ebx
+  _BYTE *v3; // rax
+  char v4; // bl
+  _BYTE *v5; // rax
+  __int64 v6; // rbx
+  char v8; // [rsp+1Bh] [rbp-55h] BYREF
+  int v9; // [rsp+1Ch] [rbp-54h]
+  int i; // [rsp+20h] [rbp-50h]
+  int j; // [rsp+24h] [rbp-4Ch]
+  _BYTE *v12; // [rsp+28h] [rbp-48h]
+  char v13[40]; // [rsp+30h] [rbp-40h] BYREF
+  unsigned __int64 v14; // [rsp+58h] [rbp-18h]
+
+  v14 = __readfsqword(0x28u);
+  v9 = 0;
+  for ( i = 0; i <= 16; ++i )
+  {
+    v2 = *std::__cxx11::basic_string<char,std::char_traits<char>,std::allocator<char>>::operator[](a1, i);
+    v9 += v2 + *std::__cxx11::basic_string<char,std::char_traits<char>,std::allocator<char>>::operator[](a2, i);
+  }
+  v3 = operator new(1uLL);
+  *v3 = 0;
+  v12 = v3;
+  std::allocator<char>::allocator(&v8);
+  std::__cxx11::basic_string<char,std::char_traits<char>,std::allocator<char>>::basic_string<std::allocator<char>>(
+    v13,
+    "R{{xqpMuYu`qKLPLP",
+    &v8);
+  std::allocator<char>::~allocator(&v8);
+  for ( j = 0; j <= 16; ++j )
+  {
+    v4 = v9 + 46;
+    v5 = std::__cxx11::basic_string<char,std::char_traits<char>,std::allocator<char>>::operator[](v13, j);
+    v12[j] = v4 ^ *v5;
+  }
+  v6 = v12;
+  std::__cxx11::basic_string<char,std::char_traits<char>,std::allocator<char>>::~basic_string(v13);
+  return v6;
+}
