@@ -22,6 +22,7 @@ export default function Page({ page }: PageProps) {
     .use(remarkMath)
     .use(remarkGfm)
     .use(remarkRehype)
+    .use(remarkEmoji)
     .use(rehypeKatex)
     .use(rehypeStringify)
     .processSync(page.content)

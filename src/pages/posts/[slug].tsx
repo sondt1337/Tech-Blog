@@ -10,6 +10,7 @@ import Layout from '@/layouts/Layout'
 import Link from 'next/link'
 import { useEffect, useState } from 'react';
 import TableOfContents from '@/components/TableOfContents';
+import remarkEmoji from 'remark-emoji'
 
 // Thêm interface cho heading
 interface TocItem {
@@ -103,6 +104,7 @@ export default function Post({ post }: PostProps) {
     .use(remarkMath)
     .use(remarkGfm)
     .use(remarkRehype)
+    .use(remarkEmoji) 
     .use(rehypeKatex)
     .use(rehypeStringify)
     .processSync(post.content)

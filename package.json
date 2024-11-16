@@ -18,6 +18,7 @@
         "rehype-katex": "latest",
         "rehype-stringify": "latest",
         "remark": "latest",
+        "remark-emoji": "^5.0.1",
         "remark-gfm": "latest",
         "remark-html": "latest",
         "remark-math": "latest",
