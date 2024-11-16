@@ -97,7 +97,7 @@ export default function Home({ posts, currentPage, totalPages }: HomeProps) {
   );
 }
 
-interface HomeProps {
+export interface HomeProps {
   posts: {
     slug: string;
     title: string | null;
