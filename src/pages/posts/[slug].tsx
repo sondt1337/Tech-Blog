@@ -8,7 +8,15 @@ import rehypeKatex from 'rehype-katex'
 import rehypeStringify from 'rehype-stringify'
 import Layout from '@/layouts/Layout'
 import Link from 'next/link'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react';
+import TableOfContents from '@/components/TableOfContents';
+
+// Thêm interface cho heading
+interface TocItem {
+  id: string;
+  text: string;
+  level: number;
+}
 
 interface PostProps {
   post: {
@@ -19,6 +27,29 @@ interface PostProps {
 }
 
 export default function Post({ post }: PostProps) {
+  const [headings, setHeadings] = useState<TocItem[]>([]);
+
+  useEffect(() => {
+    const articleContent = document.querySelector('.prose');
+    if (articleContent) {
+      const headingElements = articleContent.querySelectorAll('h2, h3, h4');
+      const items: TocItem[] = Array.from(headingElements).map((heading) => {
+        // Tạo id nếu chưa có
+        if (!heading.id) {
+          heading.id = heading.textContent?.toLowerCase()
+            .replace(/\s+/g, '-')
+            .replace(/[^\w-]/g, '') || '';
+        }
+        
+        return {
+          id: heading.id,
+          text: heading.textContent || '',
+          level: parseInt(heading.tagName[1]),
+        };
+      });
+      setHeadings(items);
+    }
+  }, [post.content]);
   // Thêm function xử lý copy
   const copyToClipboard = async (text: string, buttonElement: HTMLButtonElement) => {
     try {
@@ -77,31 +108,38 @@ export default function Post({ post }: PostProps) {
     .processSync(post.content)
     .toString()
 
-  return (
-    <Layout title={post.title}>
-      <article className="max-w-4xl mx-auto dark:bg-gray-800 rounded-xl shadow-md p-8">
-        <div className="mb-12">
-          <Link href="/" className="text-blue-600 hover:text-blue-800 mb-8 inline-block dark:text-blue-400 dark:hover:text-blue-600">
-            ← Back to home
-          </Link>
-          <h1 className="text-4xl font-bold mb-4 dark:text-white">{post.title}</h1>
-          <time className="text-gray-500 dark:text-gray-100 text-sm">
-            {new Date(post.date).toLocaleDateString('en-EN', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric'
-            })}
-          </time>
-        </div>
-        
-        <div className="prose prose-lg prose-blue mx-auto bg-white rounded-xl shadow-md p-8 
-                dark:bg-gray-900 dark:text-gray-200 dark:shadow-lg dark:border dark:border-gray-700">
-          <div dangerouslySetInnerHTML={{ __html: content }} />
-        </div>
-      </article>
-    </Layout>
-  )
-}
+    return (
+      <Layout title={post.title}>
+        <article className="max-w-[1600px] mx-auto px-4 lg:px-8">
+          <div className="flex flex-col xl:flex-row">
+            {/* Main content */}
+            <div className="flex-1 max-w-4xl">
+              <div className="mb-12">
+                <Link href="/" className="text-blue-600 hover:text-blue-800 mb-8 inline-block dark:text-gray-100 dark:hover:text-gray-200">
+                  ← Back to home
+                </Link>
+                <h1 className="text-4xl font-bold mb-4 dark:text-gray-100">{post.title}</h1>
+                <time className="text-gray-500 dark:text-gray-100">
+                  {new Date(post.date).toLocaleDateString('en-EN', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                  })}
+                </time>
+              </div>
+              
+              <div className="prose prose-lg mx-auto bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 dark:prose-invert text-gray-900 dark:text-gray-100">
+                <div dangerouslySetInnerHTML={{ __html: content }} />
+              </div>
+            </div>
+  
+            {/* Table of Contents */}
+            <TableOfContents headings={headings} />
+          </div>
+        </article>
+      </Layout>
+    );
+  }
 
 export async function getStaticPaths() {
   const posts = getAllPosts()

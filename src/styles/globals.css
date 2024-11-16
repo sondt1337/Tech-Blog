@@ -162,8 +162,8 @@
 .dark .prose {
   @apply prose-invert
          prose-headings:from-white
-         prose-headings:to-gray-300
-         prose-p:text-gray-300
+         prose-headings:to-gray-100
+         prose-p:text-gray-100
          prose-strong:text-white
          prose-blockquote:border-blue-400;
 }
@@ -289,5 +289,26 @@
     );
     background-size: 300% auto;
     animation: text-shimmer 3s linear infinite;
+  }
+}
+
+@layer components {
+  /* Thêm vào phần @layer components hiện có */
+  .toc-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(156, 163, 175, 0.5) transparent;
+  }
+
+  .toc-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .toc-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .toc-scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgba(156, 163, 175, 0.5);
+    border-radius: 4px;
   }
 }
