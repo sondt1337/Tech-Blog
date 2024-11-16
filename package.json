@@ -37,12 +37,7 @@
         "postcss": "latest",
         "rimraf": "latest",
         "tailwindcss": "latest",
-        "typescript": "latest",
-        "@fullhuman/postcss-purgecss": "latest",
-        "cssnano": "latest",
-        "postcss-flexbugs-fixes": "latest",
-        "postcss-nested": "latest",
-        "postcss-preset-env": "latest"
+        "typescript": "latest"
     },
     "engines": {
         "node": "20.x"
