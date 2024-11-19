@@ -1,94 +1,86 @@
 ---
-title: "Hướng Dẫn Xây Dựng Server Minecraft Trên Linux – Đơn Giản Và Chuyên Nghiệp"
+title: "Guide to Building a Minecraft Server on Linux – Simple and Professional"
 date: "2024-11-20"
-excerpt: "Hướng Dẫn Xây Dựng Server Minecraft Trên Linux – Đơn Giản Và Chuyên Nghiệp"
+excerpt: "A detailed guide on how to set up a Minecraft server on Linux, tailored for both beginners and professionals"
 featured: "https://tmdpc.vn/media/news/0206_CuhnhchiMinecrafttrnPCkhnglogitlag1.jpg"
 ---
 
-Minecraft là một trong những tựa game sandbox phổ biến nhất, nơi mà người chơi có thể tự do sáng tạo, phiêu lưu và sinh tồn trong một thế giới không giới hạn. Việc xây dựng một server Minecraft riêng để mời bạn bè cùng tham gia là một trải nghiệm vô cùng thú vị. Bài viết này sẽ hướng dẫn bạn chi tiết cách tạo một server Minecraft trên Linux, từ cài đặt cho đến cấu hình và kết nối với bạn bè.
+Minecraft, one of the most popular sandbox games, allows players to unleash creativity, explore, and survive in an infinite world. Setting up your own Minecraft server to play with friends is an incredibly rewarding experience. This guide walks you through the process of creating a Minecraft server on Linux, from installation to configuration and connecting with friends.
 
 ![](https://tmdpc.vn/media/news/0206_CuhnhchiMinecrafttrnPCkhnglogitlag1.jpg)
 
 
-## Tại Sao Chọn Linux Để Chạy Server Minecraft?
-Linux nổi tiếng với sự ổn định, bảo mật cao và khả năng tối ưu tài nguyên hệ thống. Đây là môi trường lý tưởng để vận hành một server Minecraft mượt mà, ngay cả trên các máy chủ phần cứng khiêm tốn. Với Linux, bạn sẽ có toàn quyền kiểm soát server, đồng thời tận dụng được cộng đồng hỗ trợ mạnh mẽ.
+## Why Choose Linux for Your Minecraft Server?
+Linux is renowned for its stability, security, and resource optimization. It is the perfect environment for running a smooth Minecraft server, even on modest hardware. With Linux, you gain complete control over your server while leveraging a vast and supportive community.
 
 ![image](https://hackmd.io/_uploads/SygQ1w5f1l.png)
 
-## Yêu Cầu Hệ Thống
-Để bắt đầu, bạn cần chuẩn bị:
-- **Hệ điều hành Linux**: Ubuntu, CentOS, Debian, hoặc bất kỳ bản phân phối nào bạn quen thuộc.
-- **Quyền truy cập root hoặc sudo**.
-- **Kết nối Internet ổn định**.
-- **Ít nhất 1GB RAM** dành riêng cho server (khuyến nghị từ 2GB trở lên để tối ưu trải nghiệm).
+## System Requirements
+Before you start, make sure you have:
+- **Linux OS:** Ubuntu, CentOS, Debian, or any distribution you are comfortable with.
+- **Root or sudo access.**
+- **Stable internet connection.**
+- **At least 1GB of dedicated RAM** (2GB or more is recommended for optimal performance).
 
-## Bước 1: Tạo Thư Mục Lưu Trữ Server Minecraft
-
-Đầu tiên, tạo một thư mục mới để lưu trữ các file server Minecraft:
+## Step 1: Create a Directory for the Minecraft Server
+First, create a new directory to store your Minecraft server files:
 
 ```bash
 mkdir ~/minecraft-server
 cd ~/minecraft-server
 ```
 
-## Bước 2: Tải File Server Minecraft
-Tải xuống phiên bản server Minecraft mới nhất từ Mojang bằng lệnh `wget`. Đây là một trong những cách nhanh chóng và tiện lợi nhất để cập nhật:
-
+## Step 2: Download the Minecraft Server File
+Download the latest Minecraft server file from Mojang using the `wget` command for quick and convenient updates:
 ```bash
 wget https://piston-data.mojang.com/v1/objects/45810d238246d90e811d896f87b14695b7fb6839/server.jar
 ```
 
-Link tải này có thể thay đổi, bạn nên kiểm tra trang web chính thức của Minecraft để có link mới nhất: [Minecraft Server Download](https://www.minecraft.net/en-us/download/server).
+Note: The download link may change. Always verify the latest link on the official [Minecraft Server Download](https://www.minecraft.net/en-us/download/server).
 
 ![image](https://hackmd.io/_uploads/rkznKLcfyg.png)
 
-## Bước 3: Cài Đặt Hoặc Cập Nhật Phiên Bản Java Mới Nhất
-Server Minecraft yêu cầu Java để hoạt động. Bạn cần cài đặt Java phiên bản 17 hoặc mới hơn. Dưới đây là cách cài đặt Java trên Ubuntu:
-
+## Step 3: Install or Update Java to the Latest Version
+Minecraft servers require Java. Ensure you have Java 17 or newer installed. On Ubuntu, use the following commands:
 ```
 sudo add-apt-repository ppa:openjdk-r/ppa
 sudo apt update
 sudo apt install openjdk-21-jdk
 ```
 
-Đảm bảo kiểm tra phiên bản Java sau khi cài đặt:
+Check the Java version after installation:
 
 ```bash
 java -version
 ```
 
-## Bước 4: Khởi Chạy Server Minecraft Lần Đầu
+## Step 4: Launch the Minecraft Server for the First Time
 
-Sau khi đã có Java và tải server.jar, chúng ta có thể khởi chạy server lần đầu tiên bằng lệnh sau:
+With Java installed and the server file downloaded, launch the server for the first time:
 
 ```bash
 java -Xmx1024M -Xms1024M -jar server.jar nogui
 ```
 
-Khi chạy lần đầu, server sẽ tạo một tệp `eula.txt`. Bạn cần chấp nhận thỏa thuận **EULA** (End User License Agreement) của Mojang bằng cách chỉnh sửa tệp này:
-
+This will generate an `eula.txt` file. Accept Mojang’s End User License Agreement by editing the file:
 ```bash
 nano eula.txt
 ```
-
-Thay đổi dòng:
+Change the line:
 ```bash
 eula=false
 ``` 
-thành:
+to:
 ```bash
 eula=true`
 ```
+Save and exit (Ctrl + O, Enter, Ctrl + X).
 
 ![image](https://hackmd.io/_uploads/HkDw989G1x.png)
 
-Sau đó lưu và thoát (`Ctrl + O`, `Enter`, `Ctrl + X`).
+## Step 5: Configure Server Properties
 
-## Bước 5: Cài Đặt Các Thông Số Server
-
-Tiếp theo, hãy mở file `server.properties` để cấu hình các thông số server theo nhu cầu của bạn. Trong file này, bạn có thể tùy chỉnh nhiều thông số như tên thế giới, số người chơi tối đa, hay các cài đặt sinh tồn,... 
-
-Ở đây, chúng ta sửa `online-mode` thành `false` để cho phép người chơi đăng nhập mà không cần tài khoản chính thức từ Mojang, tương tự như cách sử file `eula.txt`:
+Next, open the `server.properties` file to customize your server settings. Adjust parameters like world name, player limit, and gameplay settings. For instance, to allow non-Mojang accounts, set `online-mode` to `false`:
 
 ```bash
 nano server.properties
@@ -96,72 +88,67 @@ nano server.properties
 
 ![image](https://hackmd.io/_uploads/S1NIjI9zkl.png)
 
-Một số thông số quan trọng bạn có thể tùy chỉnh:
-- `online-mode=true`: Thay đổi thành false nếu muốn cho phép người chơi không có tài khoản Mojang.
-- `max-players=20`: Giới hạn số lượng người chơi tối đa.
-- `level-name=world`: Đặt tên thế giới Minecraft.
+Key configurations:
+- `online-mode=true`: Set to `false` to allow non-Mojang accounts.
+- `max-players=20`: Set the maximum number of players.
+- `level-name=world`: Name your Minecraft world.
 - `difficulty=1`: 0 (Peaceful), 1 (Easy), 2 (Normal), 3 (Hard).
 
 
-Sau khi chỉnh sửa, lưu và thoát (`Ctrl + O`, `Enter`, `Ctrl + X`).
+Save and exit (Ctrl + O, Enter, Ctrl + X).
 
-## Bước 6: Khởi Động Server Minecraft
+## Step 6: Start the Minecraft Server
 
-Khởi động lại server với lệnh sau:
+Restart the server using the following command:
 
 ```bash
 java -Xmx2G -Xms1G -jar server.jar nogui
 ```
 
-Giải thích tham số:
-- `Xmx2G`: Giới hạn bộ nhớ RAM tối đa là 2GB.
-- `Xms1G`: Đặt bộ nhớ RAM tối thiểu là 1GB.
+Explanation:
+- `Xmx2G`: Sets a maximum of 2GB RAM.
+- `Xms1G`: Allocates a minimum of 1GB RAM.
 
-Server sẽ chạy trên port mặc định là 25565, và đã sẵn sàng đón các thành viên tham gia.
+By default, the server will run on port 25565 and is ready for players to join.
 
 ![image](https://hackmd.io/_uploads/HkjzhU9M1e.png)
 
-## Bước 7: Chia Sẻ Server Với Bạn Bè
+## Step 7: Share the Server with Friends
 
-### Trường Hợp Có IP Public
-Chỉ cần chia sẻ IP server của bạn cho bạn bè để tham gia. Ví dụ: `103.123.120.32:25565`.
+### If You Have a Public IP
+Share your server’s public IP with friends. Example: `103.123.120.32:25565`.
 
 ![image](https://hackmd.io/_uploads/B1lZYCIcGkg.png)
 
-Sau khi có người tham gia World:
+Example after a player joins:
 
 ![image](https://hackmd.io/_uploads/ByHSnLcz1x.png)
 
-### Trường Hợp Không Có IP Public
-Bạn có thể sử dụng [ngrok](https://ngrok.com/) để expose server của bạn ra Internet. Ngrok cho phép bạn kết nối với server tại nhà mà không cần IP công khai:
+### If You Don’t Have a Public IP
+Use [ngrok](https://ngrok.com/) to expose your server to the internet. Ngrok provides a temporary public address.
 
-Ngrok sẽ cung cấp cho bạn một địa chỉ, ví dụ: `0.tcp.jp.ngrok.io:13880`. Bạn chỉ cần chia sẻ domain này cho bạn bè để tham gia server.
-
-1. Cài đặt ngrok:
+1. Install ngrok:
     ```bash
     wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-stable-linux-amd64.zip
     unzip ngrok-stable-linux-amd64.zip
     sudo mv ngrok /usr/local/bin
     ```
 
-2. Chạy ngrok trên cổng 25565:
+2. Run ngrok on port 25565:
     ```bash
     ngrok tcp 25565
     ```
 
-Ngrok sẽ cung cấp một địa chỉ như `0.tcp.ngrok.io:12345`. Chia sẻ địa chỉ này với bạn bè để họ tham gia server của bạn.
-
 ![image](https://hackmd.io/_uploads/SkX4pUcMyl.png)
 
-Lúc này chúng ta hoàn toàn có thể kết nối đến từ các máy khác thông qua link ngrok tcp này, với ví dụ của mình thì sẽ kết nối đến Server có Address là `0.tcp.jp.ngrok.io:13880`.
+Ngrok will generate a URL like `0.tcp.jp.ngrok.io:13880`. Share this with friends. They can join your server by connecting to `0.tcp.jp.ngrok.io:13880` in Minecraft.
+## Optimizing Your Minecraft Server
+- `Plugins or Mods`: Use tools like Bukkit or Spigot to add plugins for better management and gameplay enhancements.
+- `Resource Management`: Ensure your server doesn’t use excessive resources, especially on personal computers.
+- `Security`: Use a firewall or tools like UFW to restrict access from unwanted IPs.
 
-## Tối Ưu Server Minecraft
-- **Cài đặt Plugin hoặc Mods**: Sử dụng các công cụ như Bukkit hoặc Spigot để thêm plugin hỗ trợ quản lý và cải thiện trải nghiệm chơi game.
-- **Giới hạn RAM hợp lý**: Đảm bảo server không sử dụng quá nhiều tài nguyên, đặc biệt nếu bạn dùng máy tính cá nhân.
-- **Bảo mật**: Sử dụng tường lửa hoặc ứng dụng như UFW để giới hạn truy cập từ các địa chỉ IP không mong muốn.
 
+## Conclusion
+Setting up and running a Minecraft server on Linux not only offers a unique gaming experience but also enhances your system administration skills. With your private server, you have complete control—from customizing gameplay to inviting friends into a boundless creative world.
 
-## Kết Luận
-Việc tự xây dựng và vận hành một server Minecraft trên Linux không chỉ mang lại trải nghiệm chơi game độc đáo mà còn giúp bạn nâng cao kỹ năng quản trị hệ thống. Với server riêng, bạn có toàn quyền kiểm soát, từ việc tùy chỉnh game play đến mời bạn bè cùng tham gia vào một thế giới sáng tạo không giới hạn.
-
-Hãy bắt đầu ngay hôm nay và tận hưởng niềm vui từ việc sáng tạo thế giới Minecraft của riêng bạn! 🌟
+Start today and enjoy building your very own Minecraft universe! 🌟
