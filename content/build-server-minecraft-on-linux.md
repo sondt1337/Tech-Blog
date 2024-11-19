@@ -5,8 +5,6 @@ excerpt: "Hướng Dẫn Xây Dựng Server Minecraft Trên Linux – Đơn Gi�
 featured: "https://tmdpc.vn/media/news/0206_CuhnhchiMinecrafttrnPCkhnglogitlag1.jpg"
 ---
 
-# Hướng Dẫn Xây Dựng Server Minecraft Trên Linux – Đơn Giản Và Chuyên Nghiệp
-
 Minecraft là một trong những tựa game sandbox phổ biến nhất, nơi mà người chơi có thể tự do sáng tạo, phiêu lưu và sinh tồn trong một thế giới không giới hạn. Việc xây dựng một server Minecraft riêng để mời bạn bè cùng tham gia là một trải nghiệm vô cùng thú vị. Bài viết này sẽ hướng dẫn bạn chi tiết cách tạo một server Minecraft trên Linux, từ cài đặt cho đến cấu hình và kết nối với bạn bè.
 
 ![](https://tmdpc.vn/media/news/0206_CuhnhchiMinecrafttrnPCkhnglogitlag1.jpg)
